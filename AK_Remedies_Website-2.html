@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>A K Remedies — Khandwa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:  #0d3d27;
+      --green-mid:   #155d3a;
+      --green-light: #1e8a52;
+      --green-pale:  #d6f0e3;
+      --gold:        #c8973f;
+      --gold-light:  #f3d98e;
+      --cream:       #f8f5ef;
+      --white:       #ffffff;
+      --text-dark:   #1a1a1a;
+      --text-mid:    #4a5568;
+      --text-light:  #718096;
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   20px;
+      --shadow-sm:   0 2px 12px rgba(0,0,0,.06);
+      --shadow-md:   0 6px 30px rgba(0,0,0,.10);
+      --shadow-lg:   0 16px 48px rgba(0,0,0,.14);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(13,61,39,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200,151,63,.25);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      color: var(--green-deep);
+    }
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--white); letter-spacing: .04em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.78);
+      text-decoration: none;
+      font-size: .85rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--green-deep) !important;
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 70% 30%, rgba(30,138,82,.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(200,151,63,.10) 0%, transparent 55%),
+        linear-gradient(160deg, var(--green-deep) 0%, #0a2a1a 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,151,63,.15);
+      border: 1px solid rgba(200,151,63,.35);
+      padding: 5px 14px; border-radius: 50px;
+      font-size: .75rem; font-weight: 600;
+      color: var(--gold-light); letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-tag::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--gold); border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--white); margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-desc {
+      font-size: 1.05rem; line-height: 1.7;
+      color: rgba(255,255,255,.7);
+      max-width: 460px; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--green-deep);
+      padding: 13px 28px; border-radius: 50px;
+      font-weight: 600; font-size: .9rem;
+      text-decoration: none; letter-spacing: .04em;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(200,151,63,.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,151,63,.5); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: var(--white); padding: 13px 28px; border-radius: 50px;
+      font-weight: 500; font-size: .9rem; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 48px;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+    }
+    .stat-label { font-size: .78rem; color: rgba(255,255,255,.55); letter-spacing: .04em; }
+
+    /* hero right — floating card grid */
+    .hero-right { position: relative; }
+    .hero-card-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .hero-product-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform .3s, background .3s;
+      animation: floatIn .6s ease both;
+    }
+    .hero-product-card:nth-child(1) { animation-delay: .1s; }
+    .hero-product-card:nth-child(2) { animation-delay: .2s; margin-top: 24px; }
+    .hero-product-card:nth-child(3) { animation-delay: .3s; }
+    .hero-product-card:nth-child(4) { animation-delay: .4s; margin-top: 24px; }
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-product-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.12); }
+    .hero-product-card img {
+      width: 70px; height: 70px; object-fit: contain;
+      border-radius: 8px; margin-bottom: 8px;
+    }
+    .hero-product-card .hpc-name {
+      font-size: .78rem; font-weight: 600; color: var(--white); line-height: 1.3;
+    }
+    .hero-product-card .hpc-price {
+      font-size: .72rem; color: var(--gold-light); margin-top: 4px;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 5%; }
+    .section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--green-light);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: var(--green-deep);
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: .95rem; color: var(--text-mid); max-width: 540px; line-height: 1.7;
+    }
+    .section-head { margin-bottom: 50px; }
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 14px 0 18px;
+      border-radius: 2px;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      background: var(--green-deep);
+      padding: 70px 5%;
+    }
+    .features-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: background .3s;
+    }
+    .feature-card:hover { background: rgba(255,255,255,.1); }
+    .feature-icon {
+      font-size: 2rem; margin-bottom: 14px;
+    }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .feature-card p { font-size: .85rem; color: rgba(255,255,255,.6); line-height: 1.6; }
+
+    /* ── PRODUCTS ── */
+    .products-section { background: var(--white); }
+    .products-inner { max-width: 1200px; margin: 0 auto; }
+
+    .category-filter {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;
+    }
+    .filter-btn {
+      padding: 8px 18px; border-radius: 50px;
+      border: 1.5px solid #dde8e2;
+      background: transparent; cursor: pointer;
+      font-family: var(--font-body);
+      font-size: .82rem; font-weight: 500; color: var(--text-mid);
+      transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--green-deep); color: var(--white); border-color: var(--green-deep);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid #e8f0eb;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .product-img-wrap {
+      background: #f0f8f3;
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 130px; height: 130px; object-fit: contain;
+      transition: transform .4s;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+    .product-category-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--green-pale);
+      color: var(--green-mid);
+      font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 50px;
+    }
+    .product-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--green-deep); margin-bottom: 6px; line-height: 1.3;
+    }
+    .product-desc {
+      font-size: .8rem; color: var(--text-light); line-height: 1.55;
+      flex: 1; margin-bottom: 14px;
+    }
+    .product-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #e8f0eb; padding-top: 12px;
+    }
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; color: var(--green-light);
+    }
+    .product-unit { font-size: .72rem; color: var(--text-light); margin-top: 1px; }
+    .product-enquire {
+      background: var(--green-deep);
+      color: var(--white);
+      border: none; border-radius: 50px;
+      padding: 7px 14px; font-size: .76rem; font-weight: 600;
+      cursor: pointer; letter-spacing: .04em;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .product-enquire:hover { background: var(--green-light); }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--cream);
+      max-width: none;
+    }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-big-box {
+      background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+      border-radius: var(--radius-lg);
+      height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-big-box::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(200,151,63,.2), transparent 60%);
+    }
+    .about-monogram {
+      font-family: var(--font-display);
+      font-size: 9rem; font-weight: 700;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+      user-select: none;
+    }
+    .about-pill {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50px; padding: 10px 22px;
+      display: flex; align-items: center; gap: 10px; white-space: nowrap; z-index:2;
+    }
+    .about-pill-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; }
+    .about-pill span { font-size: .82rem; font-weight: 500; color: var(--white); }
+    .about-float-card {
+      position: absolute; top: -16px; right: -16px;
+      background: var(--white); border-radius: var(--radius-md);
+      padding: 16px 20px; box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .about-float-card .afc-num {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+    }
+    .about-float-card .afc-label { font-size: .72rem; color: var(--text-mid); }
+
+    .about-text .section-label { margin-top: 0; }
+    .about-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .about-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .9rem; color: var(--text-mid); line-height: 1.55;
+    }
+    .about-list li::before {
+      content: '✦';
+      color: var(--gold); font-size: .75rem; margin-top: 3px; flex-shrink: 0;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--green-deep);
+      padding: 90px 5%;
+    }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .contact-section .section-title { color: var(--white); }
+    .contact-section .section-label { color: var(--gold-light); }
+    .contact-section .divider { background: linear-gradient(90deg, var(--gold), transparent); }
+    .contact-section .section-sub { color: rgba(255,255,255,.65); }
+
+    .contact-items { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(200,151,63,.15);
+      border: 1px solid rgba(200,151,63,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-item-body h4 {
+      font-size: .78rem; font-weight: 600; letter-spacing: .07em;
+      color: var(--gold-light); text-transform: uppercase; margin-bottom: 4px;
+    }
+    .contact-item-body p {
+      font-size: .88rem; color: rgba(255,255,255,.75); line-height: 1.55;
+    }
+    .contact-item-body a {
+      color: rgba(255,255,255,.85); text-decoration: none;
+      font-size: .95rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .contact-item-body a:hover { color: var(--gold-light); }
+
+    /* contact form */
+    .contact-form-box {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+    .contact-form-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 600; color: var(--white);
+      margin-bottom: 24px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: .76rem; font-weight: 500;
+      color: rgba(255,255,255,.6); letter-spacing: .05em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: var(--white); font-family: var(--font-body); font-size: .88rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; padding: 13px;
+      background: var(--gold); color: var(--green-deep);
+      border: none; border-radius: 50px;
+      font-family: var(--font-body); font-size: .9rem; font-weight: 700;
+      cursor: pointer; letter-spacing: .05em;
+      transition: background .2s, transform .2s;
+    }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060f08;
+      padding: 40px 5% 24px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding-bottom: 24px; margin-bottom: 20px;
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 600; color: var(--white);
+    }
+    .footer-tagline span { color: var(--gold); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: .8rem; color: rgba(255,255,255,.45); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy {
+      max-width: 1200px; margin: 0 auto;
+      text-align: center; font-size: .78rem; color: rgba(255,255,255,.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    /* animations */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-mark">AK</div>
+    <span class="nav-name">A K Remedies</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/919826835396?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" class="nav-cta">💬 WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Trusted Since 2013 · Khandwa, M.P.</div>
+      <h1>Your Health,<br/><span>Our Priority</span></h1>
+      <p class="hero-desc">A K Remedies offers a trusted range of herbal remedies, health supplements, skincare, and wellness products — serving the community of Khandwa with quality and care.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">Browse Products</a>
+        <a href="https://wa.me/919826835396?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" class="btn-outline">💬 Enquire on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Years Active</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Product Lines</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Genuine Brands</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card-grid">
+        <div class="hero-product-card">
+          <img src="https://wsrv.nl/?url=https://4.imimg.com/data4/TN/XP/IMOB-9828892/img-20170609-wa0045-500x500.jpg" alt="Saheli Soap" />
+          <div class="hpc-name">Saheli Soap</div>
+          <div class="hpc-price">₹ 81 / Piece</div>
+        </div>
+        <div class="hero-product-card">
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/8/537912980/JZ/LO/FU/9828892/product-jpeg-500x500.jpg" alt="Nutrilite" />
+          <div class="hpc-name">Nutrilite Multivitamin</div>
+          <div class="hpc-price">₹ 3,020 / Bottle</div>
+        </div>
+        <div class="hero-product-card">
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/SELLER/Default/2025/3/499367721/EE/AV/SU/9828892/saheli-cream-500x500.png" alt="Saheli Cream" />
+          <div class="hpc-name">Saheli Cream</div>
+          <div class="hpc-price">₹ 90 / Piece</div>
+        </div>
+        <div class="hero-product-card">
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/8/537913969/SB/CY/VA/9828892/product-jpeg-500x500.jpg" alt="Omega 3" />
+          <div class="hpc-name">Omega 3 Softgels</div>
+          <div class="hpc-price">₹ 2,104 / Box</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FEATURES ══════════════════ -->
+<div class="features">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌿</div>
+      <h3>Herbal & Natural</h3>
+      <p>Authentic herbal capsules, soaps, and powders using traditional Ayurvedic ingredients.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💊</div>
+      <h3>Health Supplements</h3>
+      <p>Premium Nutrilite range including multivitamins, protein powder, and Omega-3 softgels.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧴</div>
+      <h3>Skin & Personal Care</h3>
+      <p>Medicated soaps, acne creams, ointments and crack-care solutions for daily wellness.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <h3>Local Delivery</h3>
+      <p>Serving Khandwa and nearby areas with prompt order fulfilment and reliable supply.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PRODUCTS ══════════════════ -->
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="section-head fade-up">
+      <div class="section-label">Our Catalog</div>
+      <h2 class="section-title">Products & Pricing</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Browse our full range of health and wellness products sourced from trusted manufacturers.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Acne Soap</span>
+          <img src="https://wsrv.nl/?url=https://4.imimg.com/data4/TN/XP/IMOB-9828892/img-20170609-wa0045-500x500.jpg" alt="Saheli Soap" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Saheli Soap</div>
+          <div class="product-desc">Specially formulated medicated soap for acne-prone skin. Gentle cleansing with herbal actives.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 81</div>
+              <div class="product-unit">Per Piece</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Multi-vitamin</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/8/537912980/JZ/LO/FU/9828892/product-jpeg-500x500.jpg" alt="Nutrilite Daily Plus" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Nutrilite Daily Plus 120 Tab</div>
+          <div class="product-desc">Comprehensive multivitamin & multimineral supplement for daily nutritional support. 120 tablets per bottle.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 3,020</div>
+              <div class="product-unit">Per Bottle</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Cream</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/SELLER/Default/2025/3/499376265/YA/AD/BZ/9828892/crack-heels-cream-500x500.png" alt="Cut Care Ointment" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Cut Care Ointment</div>
+          <div class="product-desc">Effective cream for healing cracked heels and minor cuts. Provides deep moisturization and quick recovery.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 80</div>
+              <div class="product-unit">Per Piece</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Nutrition</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/KW/VJ/AV/ANDROID-9828892/product-jpeg-500x500.jpg" alt="Nutrilite Protein Powder" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Nutrilite Protein Powder 1 Kg</div>
+          <div class="product-desc">High-quality plant-based protein powder for muscle recovery, strength, and daily nutritional balance.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 4,306</div>
+              <div class="product-unit">Per Pack</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Natural Capsules</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/8/537913969/SB/CY/VA/9828892/product-jpeg-500x500.jpg" alt="Omega 3 Softgels" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Omega 3 Softgels</div>
+          <div class="product-desc">Premium fish oil capsules enriched with EPA & DHA. Supports heart health, brain function, and immunity.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 2,104</div>
+              <div class="product-unit">Per Box</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Herbal Capsules</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/10/550607030/SA/EI/UX/9828892/product-jpeg-500x500.jpg" alt="Harry Harbal Capsules" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Harry Herbal Capsules</div>
+          <div class="product-desc">Formulated with Safed Musali and natural herbs. Supports vitality, stamina, and general well-being.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 150</div>
+              <div class="product-unit">Per Strip</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Medicated Soap</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2025/10/550606251/ON/TI/LO/9828892/product-jpeg-500x500.jpg" alt="Klozen Plus Soap" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Klozen Plus Soap</div>
+          <div class="product-desc">Medicated antibacterial soap with ketoconazole action. Ideal for fungal skin conditions and daily hygiene.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 80</div>
+              <div class="product-unit">Per Piece</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Herbal Powder</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/SELLER/Default/2025/3/499371063/OI/OZ/XY/9828892/pynil-capsules-500x500.png" alt="Pynil Capsules" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Pynil Capsules</div>
+          <div class="product-desc">Herbal capsule formulation targeting piles and digestive discomfort with natural plant-based ingredients.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 180</div>
+              <div class="product-unit">Per Strip</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Acne Cream</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/SELLER/Default/2025/3/499367721/EE/AV/SU/9828892/saheli-cream-500x500.png" alt="Saheli Cream" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Saheli Cream</div>
+          <div class="product-desc">Targeted acne treatment cream with herbal actives. Reduces blemishes, controls sebum, and brightens skin tone.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 90</div>
+              <div class="product-unit">Per Piece</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Herbal Soap</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/SELLER/Default/2025/3/499372582/HZ/OS/FH/9828892/pynil-capsules-500x500.png" alt="Aloy Care Soap" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Aloy Care Soap</div>
+          <div class="product-desc">Aloe vera enriched herbal soap. Soothes, hydrates, and protects skin from daily environmental stress.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 81</div>
+              <div class="product-unit">Per Piece</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Syrup & Capsules</span>
+          <img src="https://wsrv.nl/?url=https://5.imimg.com/data5/ANDROID/Default/2022/4/FZ/GR/VI/9828892/prod-20220415-1935226431075798493052013-jpg-500x500.jpg" alt="Saheli Syrup" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Saheli Syrup</div>
+          <div class="product-desc">Herbal tonic for women's wellness — supports hormonal balance, energy levels, and overall vitality.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 250</div>
+              <div class="product-unit">Per Bottle</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-img-wrap">
+          <span class="product-category-badge">Ointment</span>
+          <img src="https://wsrv.nl/?url=https://4.imimg.com/data4/CR/NQ/IMOB-9828892/img-20170609-wa0034-250x250.jpg" alt="Pynil Ointment" />
+        </div>
+        <div class="product-body">
+          <div class="product-name">Pynil Ointment</div>
+          <div class="product-desc">Topical ointment for skin inflammation, fissures, and anal discomfort. Fast-acting herbal formulation.</div>
+          <div class="product-footer">
+            <div>
+              <div class="product-price">₹ 90</div>
+              <div class="product-unit">Per Pack</div>
+            </div>
+            <a href="#" class="product-enquire" onclick="enquireWA(this);return false;">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ABOUT ══════════════════ -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-big-box">
+        <div class="about-monogram">AKR</div>
+        <div class="about-pill">
+          <div class="about-pill-dot"></div>
+          <span>Open & Serving Khandwa</span>
+        </div>
+      </div>
+      <div class="about-float-card">
+        <div class="afc-num">12+</div>
+        <div class="afc-label">Years of Trust</div>
+      </div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Health & Wellness,<br/>Rooted in Khandwa</h2>
+      <div class="divider"></div>
+      <p class="section-sub">A K Remedies has been a trusted name in Khandwa for over a decade, providing genuine herbal, nutritional, and medical products to families across Madhya Pradesh.</p>
+      <ul class="about-list">
+        <li>Authorized retailer of Nutrilite, Saheli, Pynil, and other recognized brands.</li>
+        <li>Specialising in herbal and Ayurvedic products rooted in natural ingredients.</li>
+        <li>Serving individual customers as well as bulk enquiries from local practitioners.</li>
+        <li>Conveniently located at Shivaji Chowk, Ramganj Ward, Khandwa — easy to find and visit.</li>
+        <li>Managed by owner A. Atre with a commitment to genuine, quality health products.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACT ══════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Visit Us or<br/>Call Anytime</h2>
+      <div class="divider"></div>
+      <p class="section-sub">We're here to help. Reach out for product enquiries, pricing, or to place an order.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-body">
+            <h4>Phone</h4>
+            <a href="https://wa.me/919826835396" target="_blank">+91 98268 35396</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-item-body">
+            <h4>Address</h4>
+            <p>A K Remedies, Shivaji Chowk, Imlipura Road,<br/>opp. Shantanu Auto Parts, near Ali Aluminium ki gali,<br/>Ramganj Ward, Khandwa, Madhya Pradesh — 450001</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">👤</div>
+          <div class="contact-item-body">
+            <h4>Owner</h4>
+            <p>A. Atre</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🆔</div>
+          <div class="contact-item-body">
+            <h4>GST</h4>
+            <p>23**********1Z0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-box">
+      <h3>Send an Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name" />
+        </div>
+        <div class="form-group">
+          <label>Mobile No.</label>
+          <input type="tel" placeholder="+91 ..." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Product of Interest</label>
+        <input type="text" placeholder="e.g. Saheli Soap, Nutrilite..." />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us your requirement or question..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitEnquiry()">Send Enquiry on WhatsApp →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo-mark" style="width:34px;height:34px;font-size:15px;">AK</div>
+      <span class="footer-tagline">A K <span>Remedies</span></span>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 A K Remedies, Khandwa — All Rights Reserved. Designed with ♥ for community health.</p>
+</footer>
+
+<script>
+  // ── WHATSAPP ENQUIRY ─────────────────────────────────────────────
+  function enquireWA(btn) {
+    // Walk up to the product card and grab the product name
+    const card = btn.closest('.product-card');
+    const name = card ? card.querySelector('.product-name').textContent.trim() : 'your product';
+    const price = card ? card.querySelector('.product-price').textContent.trim() : '';
+    const msg = `Hello A K Remedies! 👋\n\nI am interested in *${name}* (${price}).\n\nCould you please share more details and confirm availability?\n\nThank you!`;
+    window.open('https://wa.me/919826835396?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  function submitEnquiry() {
+    const name    = document.querySelector('.contact-form-box input[type="text"]')?.value.trim() || '';
+    const phone   = document.querySelector('.contact-form-box input[type="tel"]')?.value.trim() || '';
+    const product = document.querySelectorAll('.contact-form-box input')[1]?.value.trim() || '';
+    const message = document.querySelector('.contact-form-box textarea')?.value.trim() || '';
+    const msg = `Hello A K Remedies! 👋\n\n*Name:* ${name || 'Not provided'}\n*Phone:* ${phone || 'Not provided'}\n*Product:* ${product || 'Not specified'}\n\n*Message:*\n${message || 'No message'}`;
+    window.open('https://wa.me/919826835396?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  // ── SCROLL REVEAL ────────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── BASE64 IMAGE EMBEDDER ────────────────────────────────────────
+  // Fetches every product image through multiple CORS proxies,
+  // converts to base64 data URIs and embeds directly — no CDN needed.
+
+  const PROXIES = [
+    url => `https://wsrv.nl/?url=${encodeURIComponent(url)}&default=1`,
+    url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    url => `https://images.weserv.nl/?url=${encodeURIComponent(url.replace('https://',''))}`,
+    url => url,
+  ];
+
+  function extractIndiaUrl(src) {
+    if (src.includes('wsrv.nl') || src.includes('weserv.nl')) {
+      const m = src.match(/[?&]url=([^&]+)/);
+      if (m) return decodeURIComponent(m[1]);
+    }
+    if (src.includes('imimg.com')) return src;
+    return null;
+  }
+
+  async function toBase64(url) {
+    for (const proxyFn of PROXIES) {
+      try {
+        const resp = await fetch(proxyFn(url), { cache: 'force-cache' });
+        if (!resp.ok) continue;
+        const blob = await resp.blob();
+        if (blob.size < 100) continue; // skip tiny/error responses
+        return await new Promise((res, rej) => {
+          const fr = new FileReader();
+          fr.onload  = () => res(fr.result);
+          fr.onerror = rej;
+          fr.readAsDataURL(blob);
+        });
+      } catch (_) { /* try next */ }
+    }
+    return null;
+  }
+
+  // Progress overlay
+  function showLoader(total) {
+    const div = document.createElement('div');
+    div.id = 'img-loader';
+    div.innerHTML = `
+      <div style="position:fixed;bottom:20px;right:20px;z-index:9999;
+        background:#0d3d27;color:#fff;padding:12px 20px;border-radius:12px;
+        font-family:sans-serif;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,.3);
+        display:flex;align-items:center;gap:10px;">
+        <span id="img-spinner" style="display:inline-block;width:14px;height:14px;
+          border:2px solid rgba(255,255,255,.3);border-top-color:#fff;
+          border-radius:50%;animation:spin .7s linear infinite;"></span>
+        <span id="img-status">Loading images… 0/${total}</span>
+      </div>
+      <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`;
+    document.body.appendChild(div);
+  }
+
+  function updateLoader(done, total) {
+    const el = document.getElementById('img-status');
+    if (el) el.textContent = done < total ? `Loading images… ${done}/${total}` : `✓ All ${total} images loaded`;
+    if (done >= total) setTimeout(() => { const l = document.getElementById('img-loader'); if(l) l.remove(); }, 1800);
+  }
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    const imgs = [...document.querySelectorAll('img')].filter(img => {
+      const src = img.getAttribute('src') || '';
+      return src.includes('imimg.com') || src.includes('wsrv.nl') || src.includes('weserv.nl');
+    });
+
+    if (!imgs.length) return;
+    showLoader(imgs.length);
+    let done = 0;
+
+    await Promise.all(imgs.map(async img => {
+      const original = extractIndiaUrl(img.getAttribute('src') || '');
+      if (!original) { done++; updateLoader(done, imgs.length); return; }
+      const data = await toBase64(original);
+      if (data) {
+        img.src = data;
+        img.style.opacity = '1';
+      }
+      done++;
+      updateLoader(done, imgs.length);
+    }));
+  });
+</script>
+
+</body>
+</html>
